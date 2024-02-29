@@ -37,7 +37,7 @@ router.post("/accept-request", userAuth, acceptRequest);
 
 // view profile
 router.post("/profile-view", userAuth, profileViews);
-``
+
 //suggested friends
 router.post("/suggested-friends", userAuth, suggestedFriends);
 
