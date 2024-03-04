@@ -1,4 +1,4 @@
-import JWT from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const userAuth = async (req, res, next) => {
   const authHeader = req?.headers?.authorization;
@@ -10,11 +10,16 @@ const userAuth = async (req, res, next) => {
   }
 
   // Extract the token from the authorization header
-  const token = authHeader?.split(" ")[1];
+  // const token = authHeader;
+  const token = authHeader?.substring(6);
 
+
+
+
+console.log(token);
   try {
     // Verify the token using the JWT_SECRET_KEY
-    const userToken = JWT.verify(token, process.env.JWT_SECRET_KEY);
+    const userToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
     // If the token is valid, attach the user's ID to the request body
     req.body.user = {
