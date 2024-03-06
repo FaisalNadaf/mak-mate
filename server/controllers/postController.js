@@ -4,7 +4,10 @@ import Users from "../models/userModel.js";
 
 export const createPost = async (req, res, next) => {
   try {
-    const { userId } = req.body.user;
+    console.log(req.body.user);
+    // const { userId } = req.body.user;
+    const userId = req.body.user?.userId;
+    console.log(userId);
     const { description, image } = req.body;
 
     if (!description) {
