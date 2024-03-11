@@ -390,7 +390,7 @@ export const profileViews = async (req, res, next) => {
   }
 };
 
-export const suggestedFriends = async (req, res) => {
+export const suggestedFriends = async (req, res) => {k
   try {
     const { userId } = req.body.user;
 
