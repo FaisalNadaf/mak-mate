@@ -174,7 +174,7 @@ export const getUser = async (req, res, next) => {
   try {
     const { userId } = req.body.user;
     const { id } = req.params;
-
+    console.log(id, userId);
     const user = await Users.findById(id ?? userId).populate({
       path: "friends",
       select: "-password",
@@ -193,6 +193,9 @@ export const getUser = async (req, res, next) => {
       success: true,
       user: user,
     });
+
+    next();
+    return;
   } catch (error) {
     console.log(error);
     res.status(500).json({
